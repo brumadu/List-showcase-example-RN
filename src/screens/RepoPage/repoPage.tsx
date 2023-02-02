@@ -16,11 +16,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import axios from "axios";
 import Icon from 'react-native-vector-icons/Feather';
+import { WebView } from 'react-native-webview';
 
-function RepoPage() {
+
+function RepoPage( navigation ) {
+    const { uri } =  navigation.params;
+    console.log(uri)
     return (
         <View>
-            <Text>Hello</Text>
+            <WebView source={{ uri: String(uri) }}/>
         </View>
     )
 }

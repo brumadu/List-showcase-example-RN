@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import {
-  FlatList,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import axios from "axios";
-import Icon from 'react-native-vector-icons/Feather';
-import RepoList from './screens/RepoList/view';
-import RepoPage from './screens/RepoPage/view';
+import RepoList from './screens/RepoList/repoList';
+import RepoPage from './screens/RepoPage/repoPage';
 
 function App() {
   const Stack = createNativeStackNavigator();
