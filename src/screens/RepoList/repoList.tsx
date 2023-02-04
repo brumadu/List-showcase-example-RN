@@ -13,7 +13,7 @@ import {
     View,
 } from 'react-native';
 import { S } from './style';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useFocusEffect } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import axios from "axios";
 import Icon from 'react-native-vector-icons/Feather';
@@ -26,19 +26,24 @@ import { RootState } from '../../redux/store';
 import RepoIcon from '../../components/RepoIcon';
 
 function RepoList({ navigation }) {
-    const { repo } = useAppSelector(state => state.userReducer)
-
+    const { repo, search } = useAppSelector(state => state.userReducer)
     const dispatch = useAppDispatch()
+
     const getRepositories = () => {
-        axios.get(`https://api.github.com/search/repositories?q=tetris&per_page=10`).then(
+        axios.get(`https://api.github.com/search/repositories?q=${search}`).then(
             res => {
                 dispatch(setRepo(res.data.items))
+                console.log(search)
             }).catch(error => {
                 if (error.response) {
-                    console.log(error.response);
+                    console.log("error " + error);
                 }
             })
     }
+
+    useEffect(() => {
+        getRepositories()
+    }, [getRepositories])
 
     function handlePress(item: any){
         dispatch(setUri(item.html_url))
@@ -56,9 +61,7 @@ function RepoList({ navigation }) {
         )
     }
 
-    useEffect(() => {
-        getRepositories()
-    }, [])
+
 
     const styles = StyleSheet.create({
         itemWrapperStyle: {

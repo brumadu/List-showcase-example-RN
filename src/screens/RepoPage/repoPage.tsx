@@ -21,7 +21,6 @@ import { useAppSelector } from '../../hooks/hooks';
 
 function RepoPage({}) {
     const { uri } = useAppSelector(state => state.userReducer)
-    console.log(uri)
     return (
         <View style={{ flex: 1 }}>
             <WebView source={{ uri: uri }}/>

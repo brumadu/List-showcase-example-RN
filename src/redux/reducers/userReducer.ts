@@ -1,4 +1,4 @@
-import { SET_USER_REPO, SET_USER_URI } from "../actions/userActions";
+import { SET_USER_REPO, SET_USER_SEARCH, SET_USER_URI } from "../actions/userActions";
 
 const initialState = {
     repo: '',
@@ -10,6 +10,8 @@ export function userReducer(state= initialState, action) {
             return {...state, repo: action.payload}
         case SET_USER_URI:
             return {...state, uri: action.payload}
+        case SET_USER_SEARCH:
+            return {...state, search: action.payload}
         default:
             return state;
         }

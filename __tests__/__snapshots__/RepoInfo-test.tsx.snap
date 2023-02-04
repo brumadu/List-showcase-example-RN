@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "borderBottomWidth": 1,
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "space-around",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontSize": 16,
+            "fontWeight": "600",
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        [
+          {
+            "fontSize": 14,
+            "fontWeight": "400",
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 14,
+          "fontWeight": "400",
+        },
+      ]
+    }
+  />
+</View>
+`;

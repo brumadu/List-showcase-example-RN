@@ -9,6 +9,8 @@ export namespace S {
     border-radius: 3px;
     `;
     export const TextInput = styled.TextInput`
+    height: 20px;
+    width: 500px;
     font-size: 17px;
     `;
 }
