@@ -1,7 +1,10 @@
-import { SET_USER_REPO, SET_USER_SEARCH, SET_USER_URI } from "../actions/userActions";
+import { SET_USER_REPO, SET_USER_SEARCH, SET_USER_URI, SET_USER_NAME } from "../actions/userActions";
 
 const initialState = {
     repo: '',
+    uri: '',
+    search: 'hub',
+    name: '',
 }
 
 export function userReducer(state= initialState, action) {
@@ -12,6 +15,8 @@ export function userReducer(state= initialState, action) {
             return {...state, uri: action.payload}
         case SET_USER_SEARCH:
             return {...state, search: action.payload}
+        case SET_USER_NAME:
+            return {...state, name: action.payload}
         default:
             return state;
         }

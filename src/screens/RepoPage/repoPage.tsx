@@ -1,30 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
-  FlatList,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  useColorScheme,
-  View,
+    SafeAreaView,
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import axios from "axios";
-import Icon from 'react-native-vector-icons/Feather';
 import { WebView } from 'react-native-webview';
 import { useAppSelector } from '../../hooks/hooks';
+import HeaderRepo from '../../components/HeaderRepo';
 
-function RepoPage({}) {
-    const { uri } = useAppSelector(state => state.userReducer)
+function RepoPage({ navigation: { goBack } }) {
+    const { name, uri } = useAppSelector(state => state.userReducer)
     return (
-        <View style={{ flex: 1 }}>
-            <WebView source={{ uri: uri }}/>
-        </View>
+        <SafeAreaView style={{ flex: 1 }}>
+            <HeaderRepo repoName={name} onPress={() => goBack()} />
+            <WebView source={{ uri: uri }} />
+        </SafeAreaView>
     )
 }
 

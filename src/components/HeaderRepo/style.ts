@@ -2,14 +2,15 @@ import styled from "styled-components/native";
 
 export namespace S {
     export const Container = styled.View`
+    flex-direction: row;
     padding-left: 16px;
     padding-right: 16px;
+    padding-top: 16px;
     padding-bottom: 16px;
-    height: 20%;
-    justify-content: space-evenly;
     `;
     export const Text = styled.Text`
-    font-weight: 700;
-    font-size: 34px;
+    font-weight: 600;
+    font-size: 16px;
+    padding-left: 16px;
     `;
 }

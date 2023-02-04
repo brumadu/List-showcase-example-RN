@@ -1,10 +1,8 @@
 import styled from "styled-components/native"
 
-
 export namespace S {
     export const Container = styled.View`
     flex: 1;
-    border-bottom-width: 1px;
     justify-content: space-around;
     `;
     export const ContainerRow = styled.View`

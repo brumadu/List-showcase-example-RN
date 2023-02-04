@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Icon from 'react-native-vector-icons/Feather';
 import { S } from "./style";
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { useAppDispatch,  } from '../../hooks/hooks';
 import { setSearch } from "../../redux/actions/userActions";
-import { Keyboard, Text, TextInput, View } from "react-native";
-
+import { Keyboard } from "react-native";
 
 function SearchBar() {
     const dispatch = useAppDispatch()
@@ -20,7 +19,6 @@ function SearchBar() {
       };
     }, [search]);
   
-
     function handleSearch() {
         dispatch(setSearch(search))
     }

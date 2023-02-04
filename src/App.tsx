@@ -13,9 +13,9 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName='RepoList'
-        // screenOptions={{
-        //   headerShown: false
-        // }}
+        screenOptions={{
+          headerShown: false
+        }}
         >
           <Stack.Screen name="RepoList" component={RepoList} />
           <Stack.Screen name="RepoPage" component={RepoPage} />

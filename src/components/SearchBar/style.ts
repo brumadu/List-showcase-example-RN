@@ -2,14 +2,14 @@ import styled from "styled-components/native";
 
 export namespace S {
     export const Container = styled.View`
-    padding-top: 16px;
-    padding-right: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
     flex-direction: row;
-    background-color: "#D9D9D9";
-    border-radius: 3px;
+    background-color: #d9d9d9;
+    border-radius: 15px;
     `;
     export const TextInput = styled.TextInput`
-    height: 20px;
     width: 500px;
     font-size: 17px;
     `;
