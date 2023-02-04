@@ -1,18 +1,23 @@
-import styled from "styled-components/native";
+import styled from "styled-components/native"
 
 export namespace S {
-    export const Header = styled.View`
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+    export const Container = styled.View`
+    flex: 1;
+    border-bottom-width: 1px;
+    justify-content: space-around;
     `;
-    export const Search = styled.View`
-    paddingHorizontal: 8,
-    paddingVertical: 8,
-    flexDirection: "row",
-    backgroundColor: "#D9D9D9",
-    borderRadius: 3,
+    export const Image = styled.Image`
+    height: 52px;
+    width: 52px;
+    margin-right: 16px;
+    border-radius: 30px;
+    `;
+    export const NameText = styled.Text`
+    font-size: 16px;
+    font-weight: 600;
     `;
     export const Text = styled.Text`
-    fontSize: 40,
+    font-size: 14px;
+    font-weight: 400;
     `;
 }

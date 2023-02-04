@@ -20,14 +20,19 @@ import Icon from 'react-native-vector-icons/Feather';
 import Search from '../../components/SearchBar';
 import HeaderList from '../../components/HeaderList';
 import RepoInfo from '../../components/RepoInfo';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { setRepo, setUri } from '../../redux/actions/userActions';
+import { RootState } from '../../redux/store';
+import RepoIcon from '../../components/RepoIcon';
 
 function RepoList({ navigation }) {
-    const [repos, setRepos] = useState([]);
+    const { repo } = useAppSelector(state => state.userReducer)
 
+    const dispatch = useAppDispatch()
     const getRepositories = () => {
-        axios.get(`https://api.github.com/search/repositories?q=TETRISx&per_page=10`).then(
+        axios.get(`https://api.github.com/search/repositories?q=tetris&per_page=10`).then(
             res => {
-                setRepos(res.data.items);
+                dispatch(setRepo(res.data.items))
             }).catch(error => {
                 if (error.response) {
                     console.log(error.response);
@@ -35,16 +40,17 @@ function RepoList({ navigation }) {
             })
     }
 
+    function handlePress(item: any){
+        dispatch(setUri(item.html_url))
+        navigation.navigate({name: 'RepoPage'});
+    }
+
     const renderItem = ({ item }) => {
         return (
-            <TouchableOpacity
-                onPress={() => navigation.navigate({ name: 'RepoPage', uri: "item.html_url" })}>
-                <View>
-                    <Text> {`${item.name}`} </Text>
-                </View>
+            <TouchableOpacity onPress={() => handlePress(item)}>
                 <View style={styles.itemWrapperStyle}>
-                    <Image style={styles.itemImageStyle} source={{ uri: item.owner.avatar_url }} />
-                    <RepoInfo></RepoInfo>
+                    <S.Image source={{ uri: item.owner.avatar_url }} />
+                    <RepoInfo userRepo={`${item.name}`} stars={`${item.stargazers_count}`} nameRepo={`${item.owner.login}`}></RepoInfo>
                 </View>
             </TouchableOpacity>
         )
@@ -60,11 +66,6 @@ function RepoList({ navigation }) {
             paddingHorizontal: 16,
             paddingVertical: 16,
         },
-        itemImageStyle: {
-            width: 50,
-            height: 50,
-            marginRight: 16,
-        },
         itemNameStyle: {
             width: 100,
             flexDirection: "row",
@@ -74,14 +75,12 @@ function RepoList({ navigation }) {
 
     return (
         <View style={{ flex: 1 }}>
-            <HeaderList />
+            <HeaderList/>
             <FlatList
-                data={repos}
+                data={repo}
                 renderItem={renderItem}
-                keyExtractor={item => item.key}
-            >
-
-            </FlatList>
+                keyExtractor={item => item.name}
+            />
         </View>
     );
 

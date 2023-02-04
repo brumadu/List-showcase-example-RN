@@ -17,14 +17,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import axios from "axios";
 import Icon from 'react-native-vector-icons/Feather';
 import { WebView } from 'react-native-webview';
+import { useAppSelector } from '../../hooks/hooks';
 
-
-function RepoPage( navigation ) {
-    const { uri } =  navigation.params;
+function RepoPage({}) {
+    const { uri } = useAppSelector(state => state.userReducer)
     console.log(uri)
     return (
-        <View>
-            <WebView source={{ uri: String(uri) }}/>
+        <View style={{ flex: 1 }}>
+            <WebView source={{ uri: uri }}/>
         </View>
     )
 }

@@ -1,21 +1,24 @@
 import React from "react"
-import { View } from "react-native";
 import { S } from "./style"
 
-function RepoInfo() {
+type repoInfo = {
+    nameRepo: String;
+    stars: String;
+    userRepo: String;
+}
+
+function RepoInfo(props: repoInfo) {
     return (
         <S.Container>
             <S.ContainerRow>
                 <S.NameText>
-                    NomeRepo
-                    {/* {`${item.name}`} */}
+                    {props.nameRepo}
                     </S.NameText>
-                <S.Text>estrela
-                    {/* {`${item.stargazers_count}`} */}
+                <S.Text>
+                    {props.stars}
                     </S.Text>
             </S.ContainerRow>
-                <S.Text>User
-                    {/* {`${item.owner.login}`} */}
+                <S.Text>{props.userRepo}
                 </S.Text>
         </S.Container>
     )

@@ -1,9 +1,9 @@
 import React from "react";
-import { TextInput } from "react-native";
 import Icon from 'react-native-vector-icons/Feather';
 import { S } from "./style";
 
-function SearchBar({}) {
+
+function SearchBar() {
     return (
         <S.Container>
             <Icon
@@ -11,7 +11,7 @@ function SearchBar({}) {
                 size={20}
                 color='#3c3c4399'
             />
-            <S.TextInput placeholder="hello there" placeholderTextColor={'#3c3c4399'}></S.TextInput>
+            <S.TextInput placeholder="hello there" placeholderTextColor={'#3c3c4399'} value={""}></S.TextInput>
         </S.Container>
     )
 }
