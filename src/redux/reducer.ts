@@ -1,4 +1,4 @@
-import { SET_USER_REPO, SET_USER_SEARCH, SET_USER_URI, SET_USER_NAME } from "../actions/userActions";
+import { SET_USER_REPO, SET_USER_SEARCH, SET_USER_URI, SET_USER_NAME } from "./actions";
 
 const initialState = {
     repo: '',
