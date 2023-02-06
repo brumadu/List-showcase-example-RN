@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Icon from 'react-native-vector-icons/Feather';
 import { S } from "./style";
 import { useAppDispatch, } from '../../hooks/hooks';
-import { setSearch } from "../../redux/actions";
+import { setSearch } from "../../redux/actions/actions";
 import { Keyboard } from "react-native";
 
 function SearchBar() {

@@ -6,12 +6,14 @@ import { WebView } from 'react-native-webview';
 import { useAppSelector } from '../../hooks/hooks';
 import HeaderRepo from '../../components/HeaderRepo';
 
-function RepoPage({ navigation: { goBack } }) {
-    const { name, uri } = useAppSelector(state => state.userReducer)
+function RepoPage({ navigation: { goBack }, route }) {
+    const repo = useAppSelector(state => state.repo)
+
+
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <HeaderRepo repoName={name} onPress={() => goBack()} />
-            <WebView source={{ uri: uri }} />
+            <HeaderRepo repoName={ route.params.name } onPress={() => goBack()} />
+            <WebView source={{ uri: route.params.url }} />
         </SafeAreaView>
     )
 }

@@ -1,25 +1,25 @@
-import { SET_USER_REPO, SET_USER_SEARCH, SET_USER_URI, SET_USER_NAME } from "./actions";
+import types from "./actions/types/actionsTypes";
 
 const initialState = {
-    repo: '',
-    uri: '',
+    repo: [],
     search: 'hub',
-    name: '',
 }
 
-export function userReducer(state= initialState, action) {
-    switch (action.type) { 
-        case SET_USER_REPO:
-            return {...state, repo: action.payload}
-        case SET_USER_URI:
-            return {...state, uri: action.payload}
-        case SET_USER_SEARCH:
-            return {...state, search: action.payload}
-        case SET_USER_NAME:
-            return {...state, name: action.payload}
+export function userReducer(state = initialState, action: any) {
+    switch (action.type) {
+        case types.SET_USER_REPO:
+            return {
+                ...state,
+                repo: action.payload,
+            }
+        case types.SET_USER_SEARCH:
+            return { 
+                ...state, 
+                search: action.payload
+            }
         default:
             return state;
-        }
+    }
 }
 
 export default userReducer;

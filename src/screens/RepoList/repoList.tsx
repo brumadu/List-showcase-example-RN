@@ -1,42 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
     FlatList,
     SafeAreaView,
     TouchableOpacity,
 } from 'react-native';
 import { S } from './style';
-import axios from "axios";
 import HeaderList from '../../components/HeaderList';
 import RepoInfo from '../../components/RepoInfo';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { setName, setRepo, setUri } from '../../redux/actions/userActions';
+import { useAppSelector } from '../../hooks/hooks';
 
 function RepoList({ navigation }) {
-    const { repo, search, name } = useAppSelector(state => state.userReducer)
-    const dispatch = useAppDispatch()
-
-    const getRepositories = () => {
-        axios.get(`https://api.github.com/search/repositories?q=${search}`).then(
-            res => {
-                dispatch(setRepo(res.data.items))
-            }).catch(error => {
-                if (error.response) {
-                    console.log("error " + error);
-                }
-            })
-    }
-
-    useEffect(() => {
-        getRepositories()
-    }, [search])
-
-    function handlePress(item: any) {
-        dispatch(setName(item.owner.login))
-        dispatch(setUri(item.html_url))
-        navigation.navigate({ name: 'RepoPage' });
-    }
+    const repo = useAppSelector(state => state.repo)
 
     const renderItem = ({ item }) => {
+        function handlePress(item: any) {
+            navigation.navigate('RepoPage',{ name: item.name, url: item.html_url });
+        }
         return (
             <TouchableOpacity onPress={() => handlePress(item)}>
                 <S.ContainerList>
