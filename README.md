@@ -5,7 +5,7 @@ This application is the Abril Editora challenge for a mobile dev position.
 Summarizing, this is a React-Native App for client to search and see their repositories.
 
 ## Project Structure
-
+```
 RN_ABRIL_BRUNO_COSTA
 ├── _tests_
 └── src
@@ -28,7 +28,7 @@ RN_ABRIL_BRUNO_COSTA
     │   ├── RepoList
     │   └── RepoPage
     └── App.tsx
-
+```
 ## Building
 
 First of all, clone this repository:
