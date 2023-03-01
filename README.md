@@ -1,8 +1,6 @@
 # GitHub Repositories
 
-This application is the Abril Editora challenge for a mobile dev position.
-
-Summarizing, this is a React-Native App for client to search and see their repositories.
+This is a React-Native App for client to search and see their repositories.
 
 ## Project Structure
 ```
